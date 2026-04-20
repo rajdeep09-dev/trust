@@ -10,7 +10,7 @@ const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
+  transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as const }
 };
 
 export default function Home() {
@@ -43,7 +43,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] as const }}
             className="text-center"
           >
             <h1 className="text-mask-premium select-none text-[10rem] md:text-[22rem] font-black uppercase tracking-tighter leading-[0.75]">
@@ -120,7 +120,7 @@ export default function Home() {
               key={item.id}
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] as const }}
               viewport={{ once: true }}
               className="group relative h-[400px] rounded-[3rem] overflow-hidden shadow-2xl"
             >

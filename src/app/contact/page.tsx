@@ -23,7 +23,7 @@ export default function ContactPage() {
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const }}
         >
           <h1 className="text-8xl md:text-[12rem] font-black uppercase tracking-tighter leading-none mb-12">
             Establish <br /> <span className="text-[#FF6536]">Contact</span>
@@ -57,7 +57,7 @@ export default function ContactPage() {
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as const, delay: 0.2 }}
           className="glass-card bg-[#111111]/90 rounded-[4rem] p-10 md:p-20 shadow-[0_50px_100px_rgba(0,0,0,0.3)] relative overflow-hidden text-white"
         >
           <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-12">Initiate Transmission</h2>
@@ -118,7 +118,7 @@ export default function ContactPage() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
                     className="overflow-hidden"
                   >
                     <p className="pb-10 text-xl md:text-2xl font-medium text-gray-500 leading-relaxed max-w-3xl">

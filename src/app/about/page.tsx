@@ -6,7 +6,7 @@ const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
 };
 
 export default function AboutPage() {
@@ -16,7 +16,7 @@ export default function AboutPage() {
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as const }}
         >
           <h1 className="text-8xl md:text-[15rem] font-black uppercase tracking-tighter leading-[0.75] mb-16">
             The <span className="text-mask-premium">Radical</span> <br />
@@ -33,7 +33,7 @@ export default function AboutPage() {
           className="h-[80vh] w-full rounded-[4rem] overflow-hidden relative"
           initial={{ clipPath: "inset(20% 20% 20% 20% round 4rem)" }}
           whileInView={{ clipPath: "inset(0% 0% 0% 0% round 4rem)" }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] as const }}
           viewport={{ once: true }}
         >
           <motion.div 

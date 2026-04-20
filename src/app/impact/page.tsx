@@ -6,7 +6,7 @@ const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
+  transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as const }
 };
 
 export default function ImpactPage() {
@@ -45,7 +45,7 @@ export default function ImpactPage() {
                 <motion.div 
                   initial={{ width: 0 }}
                   whileInView={{ width: `${bar.value}%` }}
-                  transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+                  transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] as const }}
                   viewport={{ once: true }}
                   className="h-full rounded-full"
                   style={{ backgroundColor: bar.color }}
