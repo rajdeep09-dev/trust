@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Globe, Shield, Zap, ArrowRight, Check } from "lucide-react";
+import Link from "next/link";
 
 const impacts = [
   { threshold: 0, text: "Your contribution fuels our daily operations.", icon: <Zap /> },

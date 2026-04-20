@@ -1,18 +1,25 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 export default function Preloader() {
   const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
   const [isLoading, setIsLoading] = useState(true);
 
-  const words = ["Amplify", "Empower", "Sustain", "Voices", "United"];
+  const words = useMemo(() => ["Amplify", "Empower", "Sustain", "Voices", "United"], []);
 
   useEffect(() => {
-    setDimension({ width: window.innerWidth, height: window.innerHeight });
+    const handleResize = () => {
+      setDimension({ width: window.innerWidth, height: window.innerHeight });
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
+  useEffect(() => {
     if (index === words.length - 1) {
       setTimeout(() => setIsLoading(false), 1000);
       return;
@@ -23,7 +30,7 @@ export default function Preloader() {
     }, index === 0 ? 1000 : 150);
 
     return () => clearTimeout(timeout);
-  }, [index]);
+  }, [index, words.length]);
 
   const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height + 300} 0 ${dimension.height}  L0 0`;
   const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${dimension.height} Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height}  L0 0`;
