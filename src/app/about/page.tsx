@@ -6,13 +6,12 @@ const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
+  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
 };
 
 export default function AboutPage() {
   return (
     <main className="bg-[#F4F3F0] pt-40 pb-24 overflow-hidden">
-      {/* Hero Section */}
       <section className="px-6 md:px-12 max-w-[1400px] mx-auto mb-40">
         <motion.div
           initial={{ opacity: 0, y: 100 }}
@@ -29,7 +28,6 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* Parallax Abstract Section */}
       <section className="px-6 md:px-12 mb-40">
         <motion.div 
           className="h-[80vh] w-full rounded-[4rem] overflow-hidden relative"
@@ -48,18 +46,17 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      {/* Core Values (Sticky Scroll Style) */}
       <section className="px-6 md:px-12 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 mb-40">
         <div className="sticky top-40 h-fit">
           <motion.h2 {...fadeInUp} className="text-7xl md:text-9xl font-black uppercase tracking-tighter mb-8 leading-none">
             Architecting <br /> <span className="text-[#FF6536]">Endurance</span>
-          </h2>
+          </motion.h2>
         </div>
         
         <div className="flex flex-col gap-32">
           {[
-            { title: "Radical Transparency", desc: "Every dollar is tracked on a public ledger. We don't hide behind administrative complexity." },
-            { title: "Systemic Decolonization", desc: "We don't impose solutions. We provide the infrastructure for local leadership to lead their own resets." },
+            { title: "Radical Transparency", desc: "Every dollar is tracked on a public ledger. We don&apos;t hide behind administrative complexity." },
+            { title: "Systemic Decolonization", desc: "We don&apos;t impose solutions. We provide the infrastructure for local leadership to lead their own resets." },
             { title: "Obsessive Innovation", desc: "If the current tool fails, we build a new one. Satellite hubs, bio-shield units, legislative engines." }
           ].map((val, i) => (
             <motion.div 
@@ -76,7 +73,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section (Magnetic Hover Cards) */}
       <section className="px-6 md:px-12 max-w-[1400px] mx-auto mb-40">
         <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-24">The Architects</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
