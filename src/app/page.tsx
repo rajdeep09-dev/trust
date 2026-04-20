@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 import { ArrowRight, Heart, Globe, MessageCircle, Star } from "lucide-react";
+import MagneticWrapper from "@/components/MagneticWrapper";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -57,12 +58,16 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
           >
-            <Link href="/donate" className="bg-[#FF6536] text-white px-16 py-8 rounded-full font-black uppercase tracking-[0.2em] hover:scale-105 active:scale-95 transition-all duration-500 text-sm shadow-2xl shadow-[#FF6536]/40 flex items-center gap-3 group">
-              INITIATE CHANGE <ArrowRight className="group-hover:translate-x-2 transition-transform" />
-            </Link>
-            <Link href="/about" className="border-[3px] border-white text-white px-16 py-8 rounded-full font-black uppercase tracking-[0.2em] hover:bg-white hover:text-[#111111] transition-all duration-500 text-sm">
-              OUR LEGACY
-            </Link>
+            <MagneticWrapper>
+              <Link href="/donate" className="bg-[#FF6536] text-white px-16 py-8 rounded-full font-black uppercase tracking-[0.2em] hoverable transition-all duration-500 text-sm shadow-2xl shadow-[#FF6536]/40 flex items-center gap-3 group">
+                INITIATE CHANGE <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+              </Link>
+            </MagneticWrapper>
+            <MagneticWrapper>
+              <Link href="/about" className="border-[3px] border-white text-white px-16 py-8 rounded-full font-black uppercase tracking-[0.2em] hover:bg-white hover:text-[#111111] transition-all duration-500 text-sm hoverable">
+                OUR LEGACY
+              </Link>
+            </MagneticWrapper>
           </motion.div>
         </div>
 
@@ -117,7 +122,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="group relative h-[400px] rounded-[3rem] overflow-hidden"
+              className="group relative h-[400px] rounded-[3rem] overflow-hidden shadow-2xl"
             >
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-[2s] group-hover:scale-110 grayscale group-hover:grayscale-0"
@@ -175,7 +180,7 @@ export default function Home() {
           {[1, 2, 3, 4, 5].map((item) => (
             <motion.div 
               key={item}
-              className="snap-center shrink-0 w-[400px] md:w-[600px] bg-[#F4F3F0] rounded-[4rem] p-16 md:p-24 flex flex-col justify-between"
+              className="snap-center shrink-0 w-[400px] md:w-[600px] bg-[#F4F3F0] rounded-[4rem] p-16 md:p-24 flex flex-col justify-between border border-gray-100 shadow-sm"
               whileHover={{ y: -20 }}
               transition={{ duration: 0.5 }}
             >
@@ -208,9 +213,11 @@ export default function Home() {
           <h2 className="text-8xl md:text-[15rem] font-black uppercase tracking-tighter leading-none text-white mb-20">
             Be The <br /> <span className="text-mask-premium">Catalyst</span>
           </h2>
-          <Link href="/donate" className="inline-block bg-[#FF6536] text-white px-20 py-10 rounded-full font-black uppercase tracking-[0.3em] text-lg hover:scale-110 transition-transform shadow-[0_0_100px_rgba(255,101,54,0.3)]">
-            Invest in Humanity
-          </Link>
+          <MagneticWrapper>
+            <Link href="/donate" className="inline-block bg-[#FF6536] text-white px-20 py-10 rounded-full font-black uppercase tracking-[0.3em] text-lg hover:scale-110 transition-transform shadow-[0_0_100px_rgba(255,101,54,0.3)] hoverable">
+              Invest in Humanity
+            </Link>
+          </MagneticWrapper>
         </motion.div>
         
         {/* Procedural Abstract Background (SVG) */}

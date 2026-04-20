@@ -36,12 +36,12 @@ export default function ImpactPage() {
             { label: "Digital Sovereignty", value: 92, color: "#111111" },
             { label: "Community Leadership Retention", value: 78, color: "#FF6536" }
           ].map((bar, i) => (
-            <div key={i}>
+            <div key={i} className="glass-card p-10 rounded-[3rem]">
               <div className="flex justify-between items-end mb-6">
                 <h3 className="text-2xl md:text-4xl font-black uppercase tracking-tighter">{bar.label}</h3>
                 <span className="text-4xl md:text-6xl font-black text-[#FF6536]">{bar.value}%</span>
               </div>
-              <div className="h-4 bg-gray-200 rounded-full overflow-hidden">
+              <div className="h-4 bg-gray-200/20 rounded-full overflow-hidden">
                 <motion.div 
                   initial={{ width: 0 }}
                   whileInView={{ width: `${bar.value}%` }}
@@ -96,7 +96,7 @@ export default function ImpactPage() {
           viewport={{ once: true }}
         >
           <h3 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-12">Transparency is <br /> <span className="text-mask-premium">Absolute</span></h3>
-          <button className="bg-[#FF6536] text-white px-16 py-8 rounded-full font-black uppercase tracking-widest text-sm hover:scale-110 transition-transform">Download Audit Ledger</button>
+          <button className="bg-[#FF6536] text-white px-16 py-8 rounded-full font-black uppercase tracking-widest text-sm hoverable transition-transform hover:scale-110">Download Audit Ledger</button>
         </motion.div>
       </section>
     </main>

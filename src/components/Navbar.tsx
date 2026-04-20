@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import MagneticWrapper from "./MagneticWrapper";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -33,27 +34,32 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-black uppercase tracking-tighter">
-            Voices<span className="text-[#FF6536]">United</span>
-          </Link>
+          <MagneticWrapper>
+            <Link href="/" className="text-2xl font-black uppercase tracking-tighter hoverable">
+              Voices<span className="text-[#FF6536]">United</span>
+            </Link>
+          </MagneticWrapper>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex gap-12 items-center">
             {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-xs font-black uppercase tracking-widest hover:text-[#FF6536] transition-colors"
-              >
-                {link.name}
-              </Link>
+              <MagneticWrapper key={link.name}>
+                <Link
+                  href={link.href}
+                  className="text-[10px] font-black uppercase tracking-[0.3em] hover:text-[#FF6536] transition-colors hoverable p-2"
+                >
+                  {link.name}
+                </Link>
+              </MagneticWrapper>
             ))}
-            <Link
-              href="/#donate"
-              className="bg-[#FF6536] text-white px-8 py-3 rounded-full font-black uppercase tracking-widest text-[10px] hover:scale-105 active:scale-95 transition-all shadow-lg shadow-[#FF6536]/20"
-            >
-              Donate Now
-            </Link>
+            <MagneticWrapper>
+              <Link
+                href="/donate"
+                className="bg-[#FF6536] text-white px-8 py-3 rounded-full font-black uppercase tracking-widest text-[10px] hover:scale-105 active:scale-95 transition-all shadow-lg shadow-[#FF6536]/20 hoverable"
+              >
+                Donate Now
+              </Link>
+            </MagneticWrapper>
           </div>
 
           {/* Mobile Toggle */}
@@ -93,7 +99,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/#donate"
+              href="/donate"
               onClick={() => setIsOpen(false)}
               className="mt-4 bg-[#FF6536] text-white px-12 py-5 rounded-full font-black uppercase tracking-widest text-sm"
             >

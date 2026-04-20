@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Globe, Heart, MessageCircle, Mail } from "lucide-react";
+import MagneticWrapper from "./MagneticWrapper";
 
 export default function Footer() {
   return (
@@ -8,17 +9,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
           {/* Brand Column */}
           <div className="col-span-1 lg:col-span-2">
-            <Link href="/" className="text-4xl font-black uppercase tracking-tighter mb-8 block">
-              Voices<span className="text-[#FF6536]">United</span>
-            </Link>
+            <MagneticWrapper>
+              <Link href="/" className="text-4xl font-black uppercase tracking-tighter mb-8 block hoverable">
+                Voices<span className="text-[#FF6536]">United</span>
+              </Link>
+            </MagneticWrapper>
             <p className="text-gray-400 text-lg max-w-md leading-relaxed mb-8">
               Empowering communities, amplifying voices, and creating sustainable change across 70+ countries. Join our mission to build a better future.
             </p>
             <div className="flex gap-6">
-              <Globe className="cursor-pointer hover:text-[#FF6536] transition-colors" />
-              <Heart className="cursor-pointer hover:text-[#FF6536] transition-colors" />
-              <MessageCircle className="cursor-pointer hover:text-[#FF6536] transition-colors" />
-              <Mail className="cursor-pointer hover:text-[#FF6536] transition-colors" />
+              <MagneticWrapper><Globe className="cursor-pointer hover:text-[#FF6536] transition-colors hoverable" /></MagneticWrapper>
+              <MagneticWrapper><Heart className="cursor-pointer hover:text-[#FF6536] transition-colors hoverable" /></MagneticWrapper>
+              <MagneticWrapper><MessageCircle className="cursor-pointer hover:text-[#FF6536] transition-colors hoverable" /></MagneticWrapper>
+              <MagneticWrapper><Mail className="cursor-pointer hover:text-[#FF6536] transition-colors hoverable" /></MagneticWrapper>
             </div>
           </div>
 
@@ -26,10 +29,10 @@ export default function Footer() {
           <div>
             <h4 className="font-black uppercase tracking-widest text-xs mb-8 text-[#FF6536]">Navigation</h4>
             <ul className="flex flex-col gap-4">
-              <li><Link href="/about" className="font-bold hover:translate-x-2 transition-transform block">About Us</Link></li>
-              <li><Link href="/impact" className="font-bold hover:translate-x-2 transition-transform block">Our Impact</Link></li>
-              <li><Link href="/contact" className="font-bold hover:translate-x-2 transition-transform block">Contact</Link></li>
-              <li><Link href="/#donate" className="font-bold hover:translate-x-2 transition-transform block">Donate</Link></li>
+              <li><MagneticWrapper><Link href="/about" className="font-bold hover:translate-x-2 transition-all block hoverable">About Us</Link></MagneticWrapper></li>
+              <li><MagneticWrapper><Link href="/impact" className="font-bold hover:translate-x-2 transition-all block hoverable">Our Impact</Link></MagneticWrapper></li>
+              <li><MagneticWrapper><Link href="/contact" className="font-bold hover:translate-x-2 transition-all block hoverable">Contact</Link></MagneticWrapper></li>
+              <li><MagneticWrapper><Link href="/donate" className="font-bold hover:translate-x-2 transition-all block hoverable">Donate</Link></MagneticWrapper></li>
             </ul>
           </div>
 

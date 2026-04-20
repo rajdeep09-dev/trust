@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Plus, Minus } from "lucide-react";
+import MagneticWrapper from "@/components/MagneticWrapper";
 
 const faqs = [
   { q: "How are funds distributed?", a: "85% of all donations go directly to community infrastructure. The remaining 15% fuels our legislative advocacy and engineering of new relief tools." },
@@ -38,9 +39,11 @@ export default function ContactPage() {
               { icon: <MapPin />, label: "Physical Hub", val: "77 Impact Plaza, NY" }
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-8 group">
-                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover:bg-[#FF6536] group-hover:text-white transition-all duration-500">
-                  {item.icon}
-                </div>
+                <MagneticWrapper>
+                  <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover:bg-[#FF6536] group-hover:text-white transition-all duration-500 hoverable">
+                    {item.icon}
+                  </div>
+                </MagneticWrapper>
                 <div>
                   <div className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 mb-1">{item.label}</div>
                   <div className="text-2xl font-black uppercase tracking-tight">{item.val}</div>
@@ -55,7 +58,7 @@ export default function ContactPage() {
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="bg-[#111111] rounded-[4rem] p-10 md:p-20 shadow-[0_50px_100px_rgba(0,0,0,0.3)] relative overflow-hidden text-white"
+          className="glass-card bg-[#111111]/90 rounded-[4rem] p-10 md:p-20 shadow-[0_50px_100px_rgba(0,0,0,0.3)] relative overflow-hidden text-white"
         >
           <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-12">Initiate Transmission</h2>
           <form className="flex flex-col gap-8" onSubmit={(e) => e.preventDefault()}>
@@ -74,9 +77,11 @@ export default function ContactPage() {
               <textarea className="bg-white/5 border border-white/10 rounded-3xl px-8 py-6 font-bold outline-none focus:border-[#FF6536] transition-all min-h-[180px] resize-none" placeholder="TELL US YOUR STORY..."></textarea>
             </div>
 
-            <button className="bg-[#FF6536] text-white rounded-full py-8 font-black uppercase tracking-[0.3em] flex items-center justify-center gap-4 hover:scale-[1.02] transition-transform shadow-2xl shadow-[#FF6536]/30">
-              SEND SIGNAL <Send size={20} />
-            </button>
+            <MagneticWrapper>
+              <button className="w-full bg-[#FF6536] text-white rounded-full py-8 font-black uppercase tracking-[0.3em] flex items-center justify-center gap-4 hoverable transition-transform shadow-2xl shadow-[#FF6536]/30">
+                SEND SIGNAL <Send size={20} />
+              </button>
+            </MagneticWrapper>
           </form>
           
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF6536] rounded-full blur-[120px] opacity-10 -translate-y-1/2 translate-x-1/2" />
@@ -99,10 +104,10 @@ export default function ContactPage() {
             <div key={i} className="border-b border-[#111111]/10">
               <button 
                 onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-                className="w-full py-10 flex justify-between items-center text-left hover:text-[#FF6536] transition-colors"
+                className="w-full py-10 flex justify-between items-center text-left hover:text-[#FF6536] transition-colors group"
               >
                 <span className="text-2xl md:text-4xl font-black uppercase tracking-tighter">{faq.q}</span>
-                <div className="w-12 h-12 rounded-full border border-[#111111] flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-full border border-[#111111] flex items-center justify-center shrink-0 group-hover:bg-[#111111] group-hover:text-white transition-all">
                   {activeFaq === i ? <Minus size={20} /> : <Plus size={20} />}
                 </div>
               </button>
